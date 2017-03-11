@@ -34,7 +34,7 @@ class WorkingListsController < ApplicationController
   end
 
   def create
-    @working_list = WorkingList.new(group_params)
+    @working_list = WorkingList.new(working_list_params)
 
     if @working_list.save
       redirect_to working_lists_path
@@ -42,7 +42,7 @@ class WorkingListsController < ApplicationController
       render :new
     end
   end
-  
+
   private
 
   def working_list_params

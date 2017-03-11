@@ -1,0 +1,11 @@
+<tr>
+  <td><%= wl.id%></td>
+  <td><%= wl.date %></td>
+  <td><%= wl.department %></td>
+  <td><%= wl.colleague %></td>
+  <td><%= link_to(wl.title, working_lists_path(wl),method: :get) %></td>
+  <td><%= wl.is_plan %></td>
+  <td><%= wl.take_time %></td>
+  <td><%= wl.descrption %></td>
+  <td><%= wl.progress %></td>
+</tr>
