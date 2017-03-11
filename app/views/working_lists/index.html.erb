@@ -1,0 +1,35 @@
+<div class="col-md-12">
+  <div class="group">
+    <%= link_to("New WorkingList", new_working_list_path, class: "btn btn-primary pull-right") %>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td>#</td>
+        <td>Date</td>
+        <td>Department</td>
+        <td>Colleague</td>
+        <td>Title</td>
+        <td>is_plan</td>
+        <td>Take Time</td>
+        <td>Descrption</td>
+        <td>Progress</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% @working_lists.each do |wl| %>
+        <td><%= wl.id%></td>
+        <td><%= wl.date %></td>
+        <td><%= wl.department %></td>
+        <td><%= wl.colleague %></td>
+        <td><%= wl.title %></td>
+        <td><%= wl.is_plan %></td>
+        <td><%= wl.take_time %></td>
+        <td><%= wl.descrption %></td>
+        <td><%= wl.progress %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>
