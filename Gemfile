@@ -40,6 +40,7 @@ gem "simple_form"
 gem "devise"
 gem "will_paginate"
 gem "annotate"
+gem 'devise'
 
 group :production do
   gem "pg"

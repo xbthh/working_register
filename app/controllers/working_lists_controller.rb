@@ -1,4 +1,6 @@
 class WorkingListsController < ApplicationController
+  before_action :authenticate_user! , only: [:new, :create]
+
   def index
     @working_lists = WorkingList.all
   end
@@ -35,6 +37,7 @@ class WorkingListsController < ApplicationController
 
   def create
     @working_list = WorkingList.new(working_list_params)
+    @working_list.user = current_user
 
     if @working_list.save
       redirect_to working_lists_path

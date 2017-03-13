@@ -16,4 +16,6 @@
 #
 
 class WorkingList < ApplicationRecord
+
+  belongs_to :user
 end
