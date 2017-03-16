@@ -1,0 +1,27 @@
+<div class="col-md-4 col-md-offset-4">
+    <h2>新增类别</h2>
+
+    <hr>
+
+    <div class="col-md-12">
+      <div class="group">
+        <%= link_to("New Work Category", new_category_path, class: "btn btn-danger pull-right") %>
+      </div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <td>#</td>
+            <td>work_category</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @categories.each do |category| %>
+          <tr>
+            <td><%=category.id%></td>
+            <td><%=category.work_category%></td>
+          </tr>
+          <% end %>
+      </table>
+    </div>
+
+</div>

@@ -1,5 +1,4 @@
-class CategroiesController < ApplicationController
-  class WorkCategoryController < ApplicationController
+class CategoriesController < ApplicationController
     def index
       @categories = Category.all
     end
@@ -51,5 +50,3 @@ class CategroiesController < ApplicationController
     end
 
   end
-
-end
