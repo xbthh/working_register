@@ -1,5 +1,5 @@
 class WorkingListsController < ApplicationController
-  before_action :authenticate_user! , only: [:new, :create]
+  before_action :authenticate_user! , only: [:new, :create, :edit, :destroy]
 
   def index
     @working_lists = WorkingList.all
