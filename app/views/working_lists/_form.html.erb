@@ -10,11 +10,11 @@
 
   <div class="form-group">
 
-    <%= f.input :date %>
+    <%= f.input :date,as: :string ,input_html: { class: "form-control"}%>
     <%= f.input :department, input_html: { class: "form-control"} %>
     <%= f.input :colleague, input_html: { class: "form-control"} %>
     <%= f.input :title, input_html: { class: "form-control"} %>
-    <%= f.input :is_plan, input_html: { class: "form-control"} %>
+    <%= f.input :is_plan %>
     <%= f.input :take_time, input_html: { class: "form-control"} %>
     <%= f.input :descrption, input_html: { class: "form-control"} %>
     <%= f.input :progress, input_html: { class: "form-control"} %>
@@ -26,4 +26,6 @@
   $( "#working_list_category_id" ).select2({
       theme: "bootstrap"
   });
+
+  $('#working_list_date').datepicker({ format: "yyyy/mm/dd" });
 </script>
