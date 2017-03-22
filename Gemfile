@@ -43,7 +43,6 @@ gem "annotate"
 gem "font-awesome-rails"
 gem "select2-rails"
 gem 'bootstrap-datepicker-rails'
-gem 'autosize'
 
 
 group :production do

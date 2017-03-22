@@ -5,7 +5,7 @@
   <label>Category</label>
 </div>
   <div class="group">
-    <%= f.select :category_id,Category.all.map{|x| [x.name,x.id]},{},:class => "form-control",:label => "Category"%>
+    <%= f.select :category_name,Category.all.map{|x| [x.name]},{},:class => "form-control",:label => "Category"%>
   </div>
 
   <div class="form-group">
@@ -28,4 +28,6 @@
   });
 
   $('#working_list_date').datepicker({ format: "yyyy/mm/dd" });
+
+  autosize($('#working_list_descrption'));
 </script>

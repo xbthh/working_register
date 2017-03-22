@@ -3,6 +3,7 @@ class WorkingListsController < ApplicationController
 
   def index
     @working_lists = WorkingList.all
+    @wa = @working_lists.group(:category_name).count
   end
 
   def new
@@ -49,7 +50,7 @@ class WorkingListsController < ApplicationController
   private
 
   def working_list_params
-    params.require( :working_list).permit(:date, :department, :colleague, :title, :is_plan, :take_time, :descrption, :progress)
+    params.require( :working_list).permit(:category_name,:date, :department, :colleague, :title, :is_plan, :take_time, :descrption, :progress)
   end
 
 end
