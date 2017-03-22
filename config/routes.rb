@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root 'working_lists#index'
 
   resources :working_lists
+
+  resources :categories
 end

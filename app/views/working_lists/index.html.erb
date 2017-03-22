@@ -1,11 +1,19 @@
+
+<div class="Chart">
+  <canvas id="myChart" width="300" height="300"></canvas>
+</div>
+
+
 <div class="col-md-12">
   <div class="group">
+    <%= link_to("New Work Category", categories_path, class: "btn btn-danger pull-right") %>
     <%= link_to("New WorkingList", new_working_list_path, class: "btn btn-primary pull-right") %>
   </div>
   <table class="table table-hover">
     <thead>
       <tr>
         <td>#</td>
+        <td>Category</td>
         <td>Date</td>
         <td>Department</td>
         <td>Colleague</td>
@@ -14,6 +22,7 @@
         <td>Take Time</td>
         <td>Descrption</td>
         <td>Progress</td>
+        <td>Operating</td>
       </tr>
     </thead>
     <tbody>
@@ -21,3 +30,44 @@
     </tbody>
   </table>
 </div>
+
+
+
+<script src="//cdn.bootcss.com/Chart.js/2.5.0/Chart.bundle.js"></script>
+<script>
+
+var ctx = document.getElementById("myChart").getContext("2d");
+
+var myPieChart = new Chart(ctx,{
+    type: 'pie',
+    data: {
+      labels: <%=raw @wa.keys%> //["Red","Blue","Yellow"]
+      ,
+      datasets: [
+          {
+              data: <%=@wa.values%> //[1, 2, 1]
+              ,
+              backgroundColor: [
+                  "#FF6384",
+                  "#36A2EB",
+                  "#FFCE56",
+                  "#874250",
+                  "#6bba6b"
+              ]
+               ,
+              hoverBackgroundColor: [
+                  "#FF6384",
+                  "#36A2EB",
+                  "#FFCE56"
+              ]
+          }]
+    },
+
+    options: [
+      {
+        segmentShowStroke : true
+      }
+    ]
+});
+
+</script>

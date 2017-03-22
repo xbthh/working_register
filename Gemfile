@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'https://gems.ruby-china.org/'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -40,7 +40,10 @@ gem "simple_form"
 gem "devise"
 gem "will_paginate"
 gem "annotate"
-gem 'devise'
+gem "font-awesome-rails"
+gem "select2-rails"
+gem 'bootstrap-datepicker-rails'
+
 
 group :production do
   gem "pg"
