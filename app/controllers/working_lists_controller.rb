@@ -2,8 +2,21 @@ class WorkingListsController < ApplicationController
   before_action :authenticate_user! , only: [:new, :create, :edit, :destroy]
 
   def index
-    @working_lists = WorkingList.all
-    @wa = @working_lists.group(:category_name).count
+    @working_lists = WorkingList.where("user_id = ?",current_user)
+    @today = Date.today
+    @wl = @working_lists.where("date >= ? AND date <= ?",
+                              @today.beginning_of_week,
+                              @today.end_of_week)
+
+    @wa = @wl.group(:category_name).sum(:take_time)
+    @ws = @wl.sum(:take_time)
+
+    @a = Array.new()
+
+    @wa.values.each do |i|
+      @a << i / @ws
+    end
+
   end
 
   def new
@@ -48,6 +61,15 @@ class WorkingListsController < ApplicationController
   end
 
   private
+
+  def find_workinglist_and_check_permission
+    @working_list = WorkingList.find(params[:id])
+
+    if current_user != @working_list.user
+      redirect_to root_path, alert: "You have no permission."
+    end
+  end
+
 
   def working_list_params
     params.require( :working_list).permit(:category_name,:date, :department, :colleague, :title, :is_plan, :take_time, :descrption, :progress)
