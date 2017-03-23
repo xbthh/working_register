@@ -2,7 +2,15 @@ class WorkingListsController < ApplicationController
   before_action :authenticate_user! , only: [:new, :create, :edit, :destroy]
 
   def index
-    @working_lists = WorkingList.where("user_id = ?",current_user)
+    @working_lists = case params[:working_list]
+    when 'by_date'
+      WorkingList.current_working_list(current_user).desc_date
+    when 'by_take_time'
+      WorkingList.current_working_list(current_user).desc_take_time
+    else
+      WorkingList.current_working_list(current_user).recent
+    end
+
     @today = Date.today
     @wl = @working_lists.where("date >= ? AND date <= ?",
                               @today.beginning_of_week,

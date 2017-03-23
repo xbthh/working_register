@@ -14,12 +14,12 @@
       <tr>
         <td>#</td>
         <td>Category</td>
-        <td>Date</td>
+        <td><%=link_to("Date",working_lists_path(:working_list => "by_date"))%></td>
         <td>Department</td>
         <td>Colleague</td>
         <td>Title</td>
         <td>is_plan</td>
-        <td>Take Time</td>
+        <td><%=link_to("Take Time",working_lists_path(:working_list => "by_take_time"))%></td>
         <td>Descrption</td>
         <td>Progress</td>
         <td>Operating</td>
@@ -53,12 +53,6 @@ var myPieChart = new Chart(ctx,{
                   "#FFCE56",
                   "#874250",
                   "#6bba6b"
-              ]
-               ,
-              hoverBackgroundColor: [
-                  "#FF6384",
-                  "#36A2EB",
-                  "#FFCE56"
               ]
           }]
     },
