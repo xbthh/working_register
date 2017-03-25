@@ -30,7 +30,7 @@ create_working_lists = for i in 1..100 do
     title:     "项目#{i}",
     is_plan:   [true, false].sample,
     take_time:  rand(1.0..9.0).round(1),
-    descrption: "描述#{i}",
+    descrption: "描述#{i}描述#{i}描述#{i}描述#{i}描述#{i}描述#{i}描述#{i}",
     progress:  ["完成","进行中","准备中"].sample,
     user_id: rand(1..10)
     ])
