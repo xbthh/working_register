@@ -17,9 +17,13 @@ end
 
 puts "100 category created."
 
+def current_category
+  @cc = Category.where("user_id = ?",)
+end
+
 create_working_lists = for i in 1..100 do
   WorkingList.create!([
-    category_name: Category.pluck(:name).sample,
+    #category_name: Category.pluck(:name).sample,
     date: rand(1.month.ago..Time.now).to_date,
     department: "部门"+rand(1..6).to_s,
     colleague: "相关人员"+rand(1..10).to_s,
@@ -30,6 +34,19 @@ create_working_lists = for i in 1..100 do
     progress:  ["完成","进行中","准备中"].sample,
     user_id: rand(1..10)
     ])
+
+    @wls = WorkingList.all
+
+    @wls.each do |wl|
+      # puts wl.user_id
+      wl.update(
+        category_name: Category.where("user_id = ?",wl.user_id).pluck(:name).sample
+        )
+    end
+
+  # WorkingList.update!([
+  #   category_name: Category.where("user_id = ?",WorkingList.user_id).map{|x| x.name}.sample
+  #   ])
 end
 
 puts "100 working_lists created."
