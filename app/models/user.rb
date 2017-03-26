@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
          has_many :working_lists
          has_many :categories
+
+  def admin?
+    is_admin
+  end
 end

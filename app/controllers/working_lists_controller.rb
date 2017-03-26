@@ -3,13 +3,13 @@ class WorkingListsController < ApplicationController
 
   def index
     @working_lists = case params[:working_list]
-    when 'by_date'
-      WorkingList.current_working_list(current_user).desc_date
-    when 'by_take_time'
-      WorkingList.current_working_list(current_user).desc_take_time
-    else
-      WorkingList.current_working_list(current_user).recent
-    end
+                      when 'by_date'
+                        WorkingList.current_working_list(current_user).desc_date
+                      when 'by_take_time'
+                        WorkingList.current_working_list(current_user).desc_take_time
+                      else
+                        WorkingList.current_working_list(current_user).recent
+                      end
 
     @today = Date.today
     @wl = @working_lists.where("date >= ? AND date <= ?",

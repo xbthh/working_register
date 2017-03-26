@@ -6,4 +6,9 @@ Rails.application.routes.draw do
   resources :working_lists
 
   resources :categories
+
+  namespace :admin do
+    resources :working_lists
+  end
+
 end
