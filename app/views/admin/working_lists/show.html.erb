@@ -1,0 +1,30 @@
+<div class="col-md-12">
+  <h1>admin show</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <td>#</td>
+        <td>Date</td>
+        <td>Department</td>
+        <td>Colleague</td>
+        <td>Title</td>
+        <td>is_plan</td>
+        <td>Take Time</td>
+        <td>Descrption</td>
+        <td>Progress</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @working_list.date %></td>
+        <td><%= @working_list.department %></td>
+        <td><%= @working_list.colleague %></td>
+        <td><%= @working_list.title %></td>
+        <td><%= @working_list.is_plan %></td>
+        <td><%= @working_list.take_time %></td>
+        <td><%= @working_list.descrption %></td>
+        <td><%= @working_list.progress %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

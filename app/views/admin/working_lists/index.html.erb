@@ -3,12 +3,12 @@
   <% @working_lists.each do |wl| %>
   <tr>
     <td>
-      <%= link_to(wl.title, admin_working_lists_path(wl)) %>
+      <%= link_to(wl.title, admin_working_list_path(wl)) %>
     </td>
-    <td>
-      <%= link_to("Edit", edit_admin_working_list_path(wl)) %>
-      <%= link_to("Destroy", admin_working_list_path(wl), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
-    </td>
+    <!-- <td>
+      <%#= link_to("Edit", edit_admin_working_list_path(wl)) %>
+      <%#= link_to("Destroy", admin_working_list_path(wl), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
+    </td> -->
     <td>
       <%= wl.created_at %>
     </td>
