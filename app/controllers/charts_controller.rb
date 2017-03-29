@@ -18,6 +18,13 @@ class ChartsController < ApplicationController
         @a << i / @ws
       end
 
+      i = 0
+      @pie = ''
+      while i < @a.length
+        @pie += "{value:#{@a.at(i)},name:'#{@wa.keys.at(i)}'},"
+        i += 1
+      end
+
     else
       @today = Date.parse("2017-03-17")
       @wl = @working_lists.where("date >= ? AND date <= ?",
@@ -33,7 +40,17 @@ class ChartsController < ApplicationController
         @a << i / @ws
       end
 
+      i = 0
+      @pie = ''
+      while i < @a.length
+        @pie += "{value:#{@a.at(i)},name:'#{@wa.keys.at(i)}'},"
+        i += 1
+      end
+
+
     end
+
+
   end
 
 end
