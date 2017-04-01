@@ -26,7 +26,7 @@ class ChartsController < ApplicationController
       end
 
     else
-      @today = Date.parse("2017-03-17")
+      @today = Date.parse("2017-03-13")
       @wl = @working_lists.where("date >= ? AND date <= ?",
                                 @today.beginning_of_week,
                                 @today.end_of_week)
