@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :working_lists
 
+  resources :charts
+
   resources :categories
 
   namespace :admin do

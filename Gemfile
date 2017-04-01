@@ -43,6 +43,8 @@ gem "annotate"
 gem "font-awesome-rails"
 gem "select2-rails"
 gem 'bootstrap-datepicker-rails'
+gem install rest-client
+
 
 
 group :production do
